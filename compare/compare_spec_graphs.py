@@ -9,16 +9,311 @@ def compare_lbm_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp
     plt.title("LBM Tiny - GNU Compiler - Speedup")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 10])
+    plt.ylim([1, 8])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
-    plt.plot([1,2,4,8], tx2_omp_speedup.T[0], marker="x", label="TX2 OMP 16x4")
-    plt.plot([1,2,4,8], tx2_mpi_speedup.T[0], marker=".", label="TX2 MPI")
-    plt.plot([1,2,4,8], g2_omp_speedup.T[0], marker="x", label="G2 OMP 16x4")
-    plt.plot([1,2,4,8], g2_mpi_speedup.T[0], marker=".", label="G2 MPI") 
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[0], c="red", linestyle="solid", marker="x", label="TX2 OMP 16x4")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[0], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[0], c="green", linestyle="solid", marker="x", label="G2 OMP 16x4")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[0], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
     plt.legend(loc="upper left")
     plt.xlabel("Number of nodes (64 cores/node)")
     plt.ylabel("Speedup")
     plt.savefig("compare_lbm_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_lbm_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("LBM Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1400])
+    plt.plot([1,2,4,8], tx2_omp_times.T[0], c="red", linestyle="solid", marker="x", label="TX2 OMP 16x4")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[0], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[0], c="green", linestyle="solid", marker="x", label="G2 OMP 16x4")
+    plt.plot([1,2,4,8], g2_mpi_times.T[0], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_lbm_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_soma_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("SOMA Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 8])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[1], c="red", linestyle="solid", marker="x", label="TX2 OMP 2x32")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[1], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[1], c="green", linestyle="solid", marker="x", label="G2 OMP 2x32")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[1], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_soma_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_soma_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("SOMA Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 2000])
+    plt.plot([1,2,4,8], tx2_omp_times.T[1], c="red", linestyle="solid", marker="x", label="TX2 OMP 2x32")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[1], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[1], c="green", linestyle="solid", marker="x", label="G2 OMP 2x32")
+    plt.plot([1,2,4,8], g2_mpi_times.T[1], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_soma_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_tealeaf_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("TeaLeaf Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 9])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[2], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[2], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[2], c="green", linestyle="solid", marker="x", label="G2 OMP 8x8")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[2], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_tealeaf_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_tealeaf_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("TeaLeaf Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1200])
+    plt.plot([1,2,4,8], tx2_omp_times.T[2], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[2], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[2], c="green", linestyle="solid", marker="x", label="G2 OMP 8x8")
+    plt.plot([1,2,4,8], g2_mpi_times.T[2], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_tealeaf_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_clvleaf_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("CloverLeaf Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 8])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[3], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[3], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[3], c="green", linestyle="solid", marker="x", label="G2 OMP 4x16")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[3], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_clvleaf_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_clvleaf_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("CloverLeaf Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1200])
+    plt.plot([1,2,4,8], tx2_omp_times.T[3], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[3], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[3], c="green", linestyle="solid", marker="x", label="G2 OMP 4x16")
+    plt.plot([1,2,4,8], g2_mpi_times.T[3], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_clvleaf_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_miniswp_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("Minisweep Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 6])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[4], c="red", linestyle="solid", marker="x", label="TX2 OMP 2x32")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[4], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[4], c="green", linestyle="solid", marker="x", label="G2 OMP 2x32")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[4], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_miniswp_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_miniswp_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("Minisweep Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1200])
+    plt.plot([1,2,4,8], tx2_omp_times.T[4], c="red", linestyle="solid", marker="x", label="TX2 OMP 2x32")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[4], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[4], c="green", linestyle="solid", marker="x", label="G2 OMP 2x32")
+    plt.plot([1,2,4,8], g2_mpi_times.T[4], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_miniswp_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_pot3d_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("POT3D Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 9])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[5], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[5], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[5], c="green", linestyle="solid", marker="x", label="G2 OMP 4x16")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[5], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_pot3d_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_pot3d_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("Minisweep Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1800])
+    plt.plot([1,2,4,8], tx2_omp_times.T[5], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[5], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[5], c="green", linestyle="solid", marker="x", label="G2 OMP 4x16")
+    plt.plot([1,2,4,8], g2_mpi_times.T[5], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_pot3d_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_sph_exa_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("SPH-EXA Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 8])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[6], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[6], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[6], c="green", linestyle="solid", marker="x", label="G2 OMP 32x2")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[6], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_sph_exa_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_sph_exa_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("SPH-EXA Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1800])
+    plt.plot([1,2,4,8], tx2_omp_times.T[6], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[6], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[6], c="green", linestyle="solid", marker="x", label="G2 OMP 32x2")
+    plt.plot([1,2,4,8], g2_mpi_times.T[6], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_sph_exa_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_hpgmgfv_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("HPGMG-FV Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 8])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[7], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[7], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[7], c="green", linestyle="solid", marker="x", label="G2 OMP 16x4")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[7], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_hpgmgfv_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_hpgmgfv_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("HPGMG-FV Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1200])
+    plt.plot([1,2,4,8], tx2_omp_times.T[7], c="red", linestyle="solid", marker="x", label="TX2 OMP 32x2")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[7], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[7], c="green", linestyle="solid", marker="x", label="G2 OMP 16x4")
+    plt.plot([1,2,4,8], g2_mpi_times.T[7], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_hpgmgfv_t_gnu_time.pdf")
+    plt.clf()
+
+def compare_weather_t_gnu_speedup(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    tx2_mpi_speedup = tx2_mpi_times[0]/tx2_mpi_times
+    tx2_omp_speedup = tx2_omp_times[0]/tx2_omp_times
+    g2_mpi_speedup = g2_mpi_times[0]/g2_mpi_times
+    g2_omp_speedup = g2_omp_times[0]/g2_omp_times
+    plt.title("miniWeather Tiny - GNU Compiler - Speedup")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 12])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], tx2_omp_speedup.T[8], c="red", linestyle="solid", marker="x", label="TX2 OMP 8x8")
+    plt.plot([1,2,4,8], tx2_mpi_speedup.T[8], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_speedup.T[8], c="green", linestyle="solid", marker="x", label="G2 OMP 8x8")
+    plt.plot([1,2,4,8], g2_mpi_speedup.T[8], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("compare_weather_t_gnu_speedup.pdf")
+    plt.clf()
+
+def compare_weather_t_gnu_time(tx2_mpi_times, tx2_omp_times, g2_mpi_times, g2_omp_times):
+    plt.title("miniWeather Tiny - GNU Compiler - Runtime")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([0, 1800])
+    plt.plot([1,2,4,8], tx2_omp_times.T[8], c="red", linestyle="solid", marker="x", label="TX2 OMP 8x8")
+    plt.plot([1,2,4,8], tx2_mpi_times.T[8], c="red", linestyle="dotted", marker=".", label="TX2 MPI")
+    plt.plot([1,2,4,8], g2_omp_times.T[8], c="green", linestyle="solid", marker="x", label="G2 OMP 8x8")
+    plt.plot([1,2,4,8], g2_mpi_times.T[8], c="green", linestyle="dotted", marker=".", label="G2 MPI") 
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Time(s)")
+    plt.savefig("compare_weather_t_gnu_time.pdf")
     plt.clf()
 
 def compare_tiny_gnu_total_time(tx2_times, g2_times):
@@ -60,7 +355,7 @@ def main():
                                         [819,945,596,586,431,1362,1098,843,1300],
                                         [422,493,381,332,240,717,541,586,652],
                                         [213,266,272,192,159,395,271,431,348]])
-    tx2_tiny_gnu_omp_2ppn_times = np.array([[1276,1865,1254,1582, 768,2076,1840,1590,2259],
+    tx2_tiny_gnu_omp_2ppn_times = np.array([[1276,1865,1254,1582,768,2076,1840,1590,2259],
                                         [635,907,563,571,398,884,928,676,1037],
                                         [321,475,333,313,257,508,453,414,455],
                                         [170,260,237,173,159,270,239,264,236]])
@@ -139,7 +434,24 @@ def main():
     compare_tiny_gnu_spec_score(tx2_tiny_gnu_spec_scores, g2_tiny_gnu7_spec_scores)
     compare_tiny_gnu_total_time(tx2_tiny_gnu_total_times, g2_tiny_gnu7_total_times)
     compare_lbm_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_16ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_16ppn_times)
-  
+    compare_lbm_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_16ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_16ppn_times)
+    compare_soma_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_2ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_2ppn_times)
+    compare_soma_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_2ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_2ppn_times)
+    compare_tealeaf_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_8ppn_times)
+    compare_tealeaf_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_8ppn_times)
+    compare_clvleaf_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_4ppn_times)
+    compare_clvleaf_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_4ppn_times)
+    compare_miniswp_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_2ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_2ppn_times)
+    compare_miniswp_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_2ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_2ppn_times)
+    compare_pot3d_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_4ppn_times)
+    compare_pot3d_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_4ppn_times)
+    compare_sph_exa_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_32ppn_times)
+    compare_sph_exa_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_32ppn_times)
+    compare_hpgmgfv_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_16ppn_times)
+    compare_hpgmgfv_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_32ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_16ppn_times)
+    compare_weather_t_gnu_speedup(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_8ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_8ppn_times)
+    compare_weather_t_gnu_time(tx2_tiny_gnu_mpi_times, tx2_tiny_gnu_omp_8ppn_times, g2_tiny_gnu7_mpi_times, g2_tiny_gnu7_omp_8ppn_times)
+
 
 if __name__ == "__main__":
     main()
