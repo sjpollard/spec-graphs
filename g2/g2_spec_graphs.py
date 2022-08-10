@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 
 def g2_tiny_gnu7_mpi_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - MPI Runtime (64 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - MPI Runtime (64 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -24,7 +24,7 @@ def g2_tiny_gnu7_mpi_time(times):
 
 def g2_tiny_gnu7_mpi_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - MPI Speedup (64 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - MPI Speedup (64 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 10])
@@ -47,7 +47,7 @@ def g2_tiny_gnu7_mpi_speedup(times):
 def g2_tiny_gnu7_mpi_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - MPI Efficiency (64 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - MPI Efficiency (64 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([40, 120])
@@ -69,7 +69,7 @@ def g2_tiny_gnu7_mpi_efficiency(times):
 
 def g2_tiny_gnu7_omp_1ppn_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Runtime (1 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Runtime (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -90,7 +90,7 @@ def g2_tiny_gnu7_omp_1ppn_time(times):
 
 def g2_tiny_gnu7_omp_1ppn_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (1 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Speedup (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 12])
@@ -113,7 +113,7 @@ def g2_tiny_gnu7_omp_1ppn_speedup(times):
 def g2_tiny_gnu7_omp_1ppn_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Efficiency (1 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Efficiency (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([30, 140])
@@ -135,7 +135,7 @@ def g2_tiny_gnu7_omp_1ppn_efficiency(times):
 
 def g2_tiny_gnu7_omp_2ppn_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Runtime (2 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Runtime (2 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -156,7 +156,7 @@ def g2_tiny_gnu7_omp_2ppn_time(times):
 
 def g2_tiny_gnu7_omp_2ppn_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (2 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Speedup (2 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 12])
@@ -179,7 +179,7 @@ def g2_tiny_gnu7_omp_2ppn_speedup(times):
 def g2_tiny_gnu7_omp_2ppn_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Efficiency (2 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Efficiency (2 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([40, 140])
@@ -201,7 +201,7 @@ def g2_tiny_gnu7_omp_2ppn_efficiency(times):
 
 def g2_tiny_gnu7_omp_4ppn_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Runtime (4 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Runtime (4 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -222,7 +222,7 @@ def g2_tiny_gnu7_omp_4ppn_time(times):
 
 def g2_tiny_gnu7_omp_4ppn_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (4 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Speedup (4 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 12])
@@ -245,7 +245,7 @@ def g2_tiny_gnu7_omp_4ppn_speedup(times):
 def g2_tiny_gnu7_omp_4ppn_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Efficiency (4 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Efficiency (4 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([40, 140])
@@ -267,7 +267,7 @@ def g2_tiny_gnu7_omp_4ppn_efficiency(times):
 
 def g2_tiny_gnu7_omp_8ppn_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Runtime (8 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Runtime (8 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -288,7 +288,7 @@ def g2_tiny_gnu7_omp_8ppn_time(times):
 
 def g2_tiny_gnu7_omp_8ppn_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (8 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Speedup (8 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 12])
@@ -311,7 +311,7 @@ def g2_tiny_gnu7_omp_8ppn_speedup(times):
 def g2_tiny_gnu7_omp_8ppn_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Efficiency (8 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Efficiency (8 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([40, 140])
@@ -333,7 +333,7 @@ def g2_tiny_gnu7_omp_8ppn_efficiency(times):
 
 def g2_tiny_gnu7_omp_16ppn_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Runtime (16 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Runtime (16 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -354,7 +354,7 @@ def g2_tiny_gnu7_omp_16ppn_time(times):
 
 def g2_tiny_gnu7_omp_16ppn_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (16 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Speedup (16 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 12])
@@ -377,7 +377,7 @@ def g2_tiny_gnu7_omp_16ppn_speedup(times):
 def g2_tiny_gnu7_omp_16ppn_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Efficiency (16 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Efficiency (16 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([40, 140])
@@ -399,7 +399,7 @@ def g2_tiny_gnu7_omp_16ppn_efficiency(times):
 
 def g2_tiny_gnu7_omp_32ppn_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Runtime (32 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Runtime (32 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([2, 3.4])
@@ -420,7 +420,7 @@ def g2_tiny_gnu7_omp_32ppn_time(times):
 
 def g2_tiny_gnu7_omp_32ppn_speedup(times):
     speedup = times[0]/times
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (32 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Speedup (32 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([1, 12])
@@ -443,7 +443,7 @@ def g2_tiny_gnu7_omp_32ppn_speedup(times):
 def g2_tiny_gnu7_omp_32ppn_efficiency(times):
     speedup = times[0]/times
     efficiency = speedup/np.array([[1],[2],[4],[8]]) * 100
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Efficiency (32 ranks/node)")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - OMP Efficiency (32 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([40, 140])
@@ -465,7 +465,7 @@ def g2_tiny_gnu7_omp_32ppn_efficiency(times):
 
 def g2_tiny_gnu7_total_time(times):
     times = np.log10(times)
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - Total Runtime")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - Total Runtime")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([3.0, 4.2])
@@ -483,7 +483,7 @@ def g2_tiny_gnu7_total_time(times):
     plt.clf()
 
 def g2_tiny_gnu7_spec_score(scores):
-    plt.title("Tiny suite - Graviton2 - GNU Compiler - SPEC Score")
+    plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - SPEC Score")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
     plt.ylim([0, 18])
