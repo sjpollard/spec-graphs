@@ -93,7 +93,7 @@ def g2_tiny_gnu7_omp_1ppn_speedup(times):
     plt.title("Tiny suite - Graviton2 - GNU Compiler - OMP Speedup (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 8])
+    plt.ylim([1, 12])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -509,7 +509,7 @@ def main():
     g2_tiny_gnu7_omp_1ppn_times = np.array([[884,1009,1163,1072,414,1646,1460,738,1153],
                                             [449,515,593,527,241,841,553,432,577],
                                             [230,267,286,260,146,417,278,213,363],
-                                            [228,271,308,260,146,417,278,213,287]])
+                                            [112,143,177,135,108,211,144,127,183]])
     g2_tiny_gnu7_omp_2ppn_times = np.array([[868,1028,1167,1015,426,1629,909,752,1123],
                                             [434,526,572,507,236,819,474,387,562],
                                             [219,274,286,257,155,407,242,203,272],
@@ -537,7 +537,7 @@ def main():
                                      g2_tiny_gnu7_omp_16ppn_times.sum(axis=1),
                                      g2_tiny_gnu7_omp_32ppn_times.sum(axis=1),
                                      g2_tiny_gnu7_mpi_times.sum(axis=1)])
-    g2_tiny_gnu7_spec_scores = np.array([[2.04,4.03,7.70,7.83],
+    g2_tiny_gnu7_spec_scores = np.array([[2.04,4.03,7.70,13.9],
                                          [2.16,4.23,8.12,15.5],
                                          [2.18,4.23,8.24,15.8],
                                          [2.17,4.25,8.23,15.8],
