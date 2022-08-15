@@ -6,7 +6,7 @@ def g3_tiny_gnu9_mpi_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - MPI Runtime (64 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.4])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -27,7 +27,7 @@ def g3_tiny_gnu9_mpi_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - MPI Speedup (64 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 10])
+    plt.ylim([0, 9])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -50,7 +50,7 @@ def g3_tiny_gnu9_mpi_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - MPI Efficiency (64 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([40, 120])
+    plt.ylim([20, 110])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -72,7 +72,7 @@ def g3_tiny_gnu9_omp_1ppn_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Runtime (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.2])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -93,7 +93,7 @@ def g3_tiny_gnu9_omp_1ppn_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Speedup (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 12])
+    plt.ylim([1, 8])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -116,7 +116,7 @@ def g3_tiny_gnu9_omp_1ppn_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Efficiency (1 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([30, 140])
+    plt.ylim([15, 110])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -138,7 +138,7 @@ def g3_tiny_gnu9_omp_2ppn_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Runtime (2 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.2])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -159,7 +159,7 @@ def g3_tiny_gnu9_omp_2ppn_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Speedup (2 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 12])
+    plt.ylim([1, 9])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -182,7 +182,7 @@ def g3_tiny_gnu9_omp_2ppn_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Efficiency (2 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([40, 140])
+    plt.ylim([20, 120])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -204,7 +204,7 @@ def g3_tiny_gnu9_omp_4ppn_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Runtime (4 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.2])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -225,7 +225,7 @@ def g3_tiny_gnu9_omp_4ppn_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Speedup (4 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 12])
+    plt.ylim([1, 10])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -248,7 +248,7 @@ def g3_tiny_gnu9_omp_4ppn_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Efficiency (4 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([40, 140])
+    plt.ylim([20, 130])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -270,7 +270,7 @@ def g3_tiny_gnu9_omp_8ppn_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Runtime (8 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.2])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -291,7 +291,7 @@ def g3_tiny_gnu9_omp_8ppn_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Speedup (8 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 12])
+    plt.ylim([1, 10])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -314,7 +314,7 @@ def g3_tiny_gnu9_omp_8ppn_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Efficiency (8 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([40, 140])
+    plt.ylim([20, 130])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -336,7 +336,7 @@ def g3_tiny_gnu9_omp_16ppn_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Runtime (16 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.6])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -357,7 +357,7 @@ def g3_tiny_gnu9_omp_16ppn_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Speedup (16 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 12])
+    plt.ylim([0, 10])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -380,7 +380,7 @@ def g3_tiny_gnu9_omp_16ppn_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Efficiency (16 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([40, 140])
+    plt.ylim([0, 130])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -402,7 +402,7 @@ def g3_tiny_gnu9_omp_32ppn_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Runtime (32 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([2, 3.4])
+    plt.ylim([1.6, 3.4])
     plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
     plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
@@ -423,7 +423,7 @@ def g3_tiny_gnu9_omp_32ppn_speedup(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Speedup (32 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([1, 12])
+    plt.ylim([0, 10])
     plt.plot(np.arange(0, 9), c="grey", linestyle="--")
     plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
@@ -446,7 +446,7 @@ def g3_tiny_gnu9_omp_32ppn_efficiency(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - OMP Efficiency (32 ranks/node)")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([40, 140])
+    plt.ylim([0, 130])
     plt.axhline(y=100, c="grey", linestyle="--")
     plt.plot([1,2,4,8], efficiency.T[0], marker="x", label="lbm")
     plt.plot([1,2,4,8], efficiency.T[1], marker="x", label="soma")
@@ -468,7 +468,7 @@ def g3_tiny_gnu9_total_time(times):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - Total Runtime")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([3.0, 4.2])
+    plt.ylim([2.9, 3.9])
     plt.plot([1,2,4,8], times[0], marker="x", label="1x64")
     plt.plot([1,2,4,8], times[1], marker="x", label="2x32")
     plt.plot([1,2,4,8], times[2], marker="x", label="4x16")
@@ -486,7 +486,7 @@ def g3_tiny_gnu9_spec_score(scores):
     plt.title("Tiny suite - Graviton3 - GNU 9 Compiler - SPEC Score")
     plt.xticks([1,2,4,8])
     plt.xlim([1, 8])
-    plt.ylim([0, 18])
+    plt.ylim([2, 22])
     plt.plot([1,2,4,8], scores[0], marker="x", label="1x64")
     plt.plot([1,2,4,8], scores[1], marker="x", label="2x32")
     plt.plot([1,2,4,8], scores[2], marker="x", label="4x16")
@@ -503,33 +503,33 @@ def g3_tiny_gnu9_spec_score(scores):
 def main():
 
     g3_tiny_gnu9_mpi_times = np.array([[444,827,700,565,356,914,496,486,725],
-                                     [221,452,1733,306,275,557,304,269,369],
+                                     [221,455,1489,306,264,688,327,283,368],
                                      [111,271,305,156,175,265,154,157,170],
-                                     [100,100,100,100,100,100,100,100,100]])#placeholder
+                                     [58.2,179,311,78.2,151,173,172,133,84.5]])
     g3_tiny_gnu9_omp_1ppn_times = np.array([[434,720,706,623,225,947,693,470,735],
                                             [228,376,371,291,193,487,380,321,376],
-                                            [100,100,100,100,100,100,100,100,100],
-                                            [100,100,100,100,100,100,100,100,100]])
+                                            [114,206,226,149,163,252,185,212,174],
+                                            [59.0,123,121,78.3,151,131,98.4,146,97.0]])
     g3_tiny_gnu9_omp_2ppn_times = np.array([[434,741,705,567,233,941,605,475,707],
                                             [224,381,365,287,181,481,303,276,350],
-                                            [100,100,100,100,100,100,100,100,100],
-                                            [100,100,100,100,100,100,100,100,100]])
+                                            [121,206,190,148,152,237,154,193,154],
+                                            [56.8,118,125,77.3,123,129,88.7,126,81.6]])
     g3_tiny_gnu9_omp_4ppn_times = np.array([[428,745,695,566,230,943,517,473,698],
                                             [218,387,359,285,173,468,270,283,326],
-                                            [100,100,100,100,100,100,100,100,100],
-                                            [100,100,100,100,100,100,100,100,100]])
+                                            [117,208,209,147,144,241,155,172,141],
+                                            [57.8,114,142,84.2,108,134,117,120,75.7]])
     g3_tiny_gnu9_omp_8ppn_times = np.array([[427,752,695,565,258,928,494,472,687],
                                             [216,388,363,283,178,474,268,290,318],
-                                            [100,100,100,100,100,100,100,100,100],
-                                            [100,100,100,100,100,100,100,100,100]])
+                                            [115,208,221,160,139,278,180,165,136],
+                                            [60.7,116,147,79.8,110,157,138,126,74.5]])
     g3_tiny_gnu9_omp_16ppn_times = np.array([[432,766,700,559,272,928,491,474,696],
                                             [219,397,366,284,196,486,291,281,326],
-                                            [100,100,100,100,100,100,100,100,100],
-                                            [100,100,100,100,100,100,100,100,100]])
+                                            [115,214,229,147,145,249,180,171,140],
+                                            [56.4,127,2874,146,154,773,436,138,72.5]])
     g3_tiny_gnu9_omp_32ppn_times = np.array([[431,791,699,560,332,910,496,477,705],
                                             [219,419,385,290,212,464,269,276,339],
-                                            [100,100,100,100,100,100,100,100,100],
-                                            [100,100,100,100,100,100,100,100,100]])
+                                            [113,239,1919,191,197,456,358,167,153],
+                                            [56.6,140,302,75.7,126,150,184,103,74.8]])
     g3_tiny_gnu9_total_times = np.array([g3_tiny_gnu9_omp_1ppn_times.sum(axis=1),
                                      g3_tiny_gnu9_omp_2ppn_times.sum(axis=1),
                                      g3_tiny_gnu9_omp_4ppn_times.sum(axis=1),
@@ -537,13 +537,13 @@ def main():
                                      g3_tiny_gnu9_omp_16ppn_times.sum(axis=1),
                                      g3_tiny_gnu9_omp_32ppn_times.sum(axis=1),
                                      g3_tiny_gnu9_mpi_times.sum(axis=1)])
-    g3_tiny_gnu9_spec_scores = np.array([[3.51,6.24,12,24],#end 12/24s are placeholders
-                                        [3.59,6.64,12,24],
-                                        [3.67,6.84,12,24],
-                                        [3.66,6.81,12,24],
-                                        [3.62,6.63,12,24],
-                                        [3.53,6.56,12,24],
-                                        [3.45,5.10,10.8,24]])
+    g3_tiny_gnu9_spec_scores = np.array([[3.51,6.24,11.1,18.8],
+                                        [3.59,6.64,11.9,20.4],
+                                        [3.67,6.84,12.2,19.8],
+                                        [3.66,6.81,11.8,18.9],
+                                        [3.62,6.63,11.8,8.94],
+                                        [3.53,6.56,7.44,17.0],
+                                        [3.45,5.02,10.8,15.2]])
     g3_tiny_gnu9_mpi_time(g3_tiny_gnu9_mpi_times)
     g3_tiny_gnu9_mpi_speedup(g3_tiny_gnu9_mpi_times)
     g3_tiny_gnu9_mpi_efficiency(g3_tiny_gnu9_mpi_times)
