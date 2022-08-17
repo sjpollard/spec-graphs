@@ -1,6 +1,49 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
+def g2_tiny_gnu9_mpi_time(times):
+    times = np.log10(times)
+    plt.title("Tiny suite - Graviton2 - GNU 9 Compiler - MPI Runtime (64 ranks/node)")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([2, 3.4])
+    plt.plot([1,2,4,8], times.T[0], marker="x", label="lbm")
+    plt.plot([1,2,4,8], times.T[1], marker="x", label="soma")
+    plt.plot([1,2,4,8], times.T[2], marker="x", label="tealeaf")
+    plt.plot([1,2,4,8], times.T[3], marker="x", label="clvleaf")
+    plt.plot([1,2,4,8], times.T[4], marker="x", label="miniswp")
+    plt.plot([1,2,4,8], times.T[5], marker="x", label="pot3d")
+    plt.plot([1,2,4,8], times.T[6], marker="x", label="sph_exa")
+    plt.plot([1,2,4,8], times.T[7], marker="x", label="hpgmgfv")
+    plt.plot([1,2,4,8], times.T[8], marker="x", label="weather")
+    plt.legend(loc="upper right")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("$log_{10}$ Time(s)")
+    plt.savefig("g2_tiny_gnu9_mpi_time.pdf")
+    plt.clf()
+
+def g2_tiny_gnu9_mpi_speedup(times):
+    speedup = times[0]/times
+    plt.title("Tiny suite - Graviton2 - GNU 9 Compiler - MPI Speedup (64 ranks/node)")
+    plt.xticks([1,2,4,8])
+    plt.xlim([1, 8])
+    plt.ylim([1, 10])
+    plt.plot(np.arange(0, 9), c="grey", linestyle="--")
+    plt.plot([1,2,4,8], speedup.T[0], marker="x", label="lbm")
+    plt.plot([1,2,4,8], speedup.T[1], marker="x", label="soma")
+    plt.plot([1,2,4,8], speedup.T[2], marker="x", label="tealeaf")
+    plt.plot([1,2,4,8], speedup.T[3], marker="x", label="clvleaf")
+    plt.plot([1,2,4,8], speedup.T[4], marker="x", label="miniswp")
+    plt.plot([1,2,4,8], speedup.T[5], marker="x", label="pot3d")
+    plt.plot([1,2,4,8], speedup.T[6], marker="x", label="sph_exa")
+    plt.plot([1,2,4,8], speedup.T[7], marker="x", label="hpgmgfv")
+    plt.plot([1,2,4,8], speedup.T[8], marker="x", label="weather")
+    plt.legend(loc="upper left")
+    plt.xlabel("Number of nodes (64 cores/node)")
+    plt.ylabel("Speedup")
+    plt.savefig("g2_tiny_gnu9_mpi_speedup.pdf")
+    plt.clf()
+
 def g2_tiny_gnu7_mpi_time(times):
     times = np.log10(times)
     plt.title("Tiny suite - Graviton2 - GNU 7 Compiler - MPI Runtime (64 ranks/node)")
@@ -501,7 +544,11 @@ def g2_tiny_gnu7_spec_score(scores):
     plt.clf() 
 
 def main():
-
+    
+    g2_tiny_gnu9_mpi_times = np.array([[764,1147,1170,979,604,1581,776,772,1068],
+                                       [387,636,591,493,408,803,396,401,539],
+                                       [203,383,297,256,242,403,206,204,243],
+                                       [108,257,147,131,179,208,113,108,113]])
     g2_tiny_gnu7_mpi_times = np.array([[812,1160,1145,982,655,1583,785,777,1070],
                                        [410,639,583,494,440,802,398,398,542],
                                        [221,388,293,257,260,408,205,204,250],
@@ -544,6 +591,8 @@ def main():
                                          [2.16,4.20,8.13,15.4],
                                          [2.12,4.12,7.78,14.8],
                                          [2.10,3.98,7.55,13.7]])
+    g2_tiny_gnu9_mpi_time(g2_tiny_gnu9_mpi_times)
+    g2_tiny_gnu9_mpi_speedup(g2_tiny_gnu9_mpi_times)
     g2_tiny_gnu7_mpi_time(g2_tiny_gnu7_mpi_times)
     g2_tiny_gnu7_mpi_speedup(g2_tiny_gnu7_mpi_times)
     g2_tiny_gnu7_mpi_efficiency(g2_tiny_gnu7_mpi_times)
